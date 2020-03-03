@@ -41,19 +41,32 @@ These files have the same hash:
         files/sines.pdf
 ```
 
-Document your code, use the [style guide](StyleGuide.md). 
+Document your code, use the [style guide]
+(StyleGuide.md).
+
+# Documenting Code
+
 
 Create a screenshot of your programm running the following commands:
 - `python duplicates.py -h` 
 - `python duplicates.py files`
 - `python duplicates.py files -e .pdf`  
   
-Edit `README.md` (this file) and include the screenshot and instructions in the _How to run this program_ section below (similar to `a0-classroom`). 
+Edit `README.md` (this file) and include the screenshot and instructions in the _How to run this program_ section 
+
+![Example screenshot](screenshot1.png)
+![Example screenshot](screenshot2.png)
+![Example screenshot](screenshot2.png)
+
+
+below (similar to `a0-classroom`). 
 
 If your ouput does not match the example output above, include a paragraph why you think this is and what you would do to find the source of this discrepancy.
 
 Make sure final version of `duplicates.py`, `README.md` and `screenshot.png` are commited to git and pushed to github. 
 
 # How to run this program
-_Add your instructions and screenshot here_
+As you can see the code does not run using "python" in the command interface. Instead I had to do my research and found that I had to use 'py'. 
+
+so 'py duplicates.py files -e .pdf' gives the last result on the last screenshot.
 

@@ -15,7 +15,7 @@ def get_hash(filename):
 
     fin = open(filename, 'rb')
     message = fin.read()
-    return hfcs.hash8(message, hfcs.create_table())
+    return hfcs.hashmd5(message)
 
 
 def get_all_hashes(dirname):
@@ -39,29 +39,47 @@ def get_all_hashes(dirname):
             d[h] = [name]
     return d
 
-def print_duplicates(hash_dict):
+def print_duplicates(hash_dict,extension):
+    """ Prints all the duplicate files takiing into consideration 
+    which file or directory has been asked for in the 
+    command interface 
     """
-    """
+    
 
-    for h, names in hash_dict.items():     
+    if extension == '.pdf':
+        for h, names in hash_dict.items():     
+            if len(names)>1 and any('.pdf' in name for name in names):
+                print("These files have the same hash:")
+                for name in names:
+                    print(f"\t{name}")
 
-        if len(names)>1:
-            print("These files have the same hash:")
-            for name in names:
-                print(f"\t{name}")
+    
+    elif extension == '.txt':
+        for h, names in hash_dict.items():     
+            if len(names)>1 and any('.txt' in name for name in names):
+                print("These files have the same hash:")
+                for name in names:
+                    print(f"\t{name}")
 
-
-
-
+    elif extension != '.pdf' or '.txt':
+        for h, names in hash_dict.items():     
+            if len(names)>1:
+                print("These files have the same hash:")
+                for name in names:
+                    print(f"\t{name}")
+                        
+        
 #argparse for commandline interface
+
 parser = argparse.ArgumentParser(description = 'Find copies of same files')
 parser.add_argument('dirname', help = 'Program to find duplicate files')
-# parser.add_argument('-e','--extension', help ='')
+parser.add_argument('-e','--extension', help ='This allows the user to chose files and find duplicates only in that file')
 args = parser.parse_args()
 
 
+# assigning all the hashed files to file_hashes
+file_hashes = get_all_hashes(dirname)
 
+#using the print functon to print the duplicate files based on the input
+print_duplicates(file_hashes,args.extension)
 
-file_hashes = hfcs.hashmd5(args.dirname)
-print_duplicates(file_hashes) 
-print(file_hashes)
