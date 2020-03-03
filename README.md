@@ -56,7 +56,7 @@ Edit `README.md` (this file) and include the screenshot and instructions in the 
 
 ![Example screenshot](screenshot1.png)
 ![Example screenshot](screenshot2.png)
-![Example screenshot](screenshot2.png)
+![Example screenshot](screenshot3.png)
 
 
 below (similar to `a0-classroom`). 
