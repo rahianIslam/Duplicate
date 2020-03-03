@@ -3,7 +3,7 @@ Scan a directory tree and find duplicate files based on their hash
 
 This assignment was inspired by Exercise 14.3 in ThinkPython 2e with code available at http://greenteapress.com/thinkpython2/code/find_duplicates.py.
 
-Author: Yves Pauchard
+Author: Rahian Islam
 # Problem statement
 Building on `hash_functions.py` and `dir_functions.py`, a colleague put together initial code in `duplicates.py`. This code allows you to specify a directory, and the program scans the directory recursively to find all files in this folder and sub-folders. For each file, its hash is calculated. A list of files with matching hash values is printed. These are potential duplicate files.
 
